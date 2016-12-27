@@ -9,6 +9,7 @@ app.get('/convert/csv/to/json', function (req, res) {
   var url = req.query.q;
   csvtojsonController.downloadAndConvert(url,tempCsvFilePath,function(error,jsonArray){
 		if(error){
+			console.log("Error occuered : "+err);
 			res.send(error);
 		}	  
 		res.send(jsonArray);

@@ -3,7 +3,7 @@ var app = express();
 var csvtojsonController = require('./controllers/csvtojsonController.js');
 const tempCsvFilePath='./tempDest.csv';
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || process.env.npm_package_config_port;
 
 app.get('/convert/csv/to/json', function (req, res) {
   var url = req.query.q;

@@ -20,6 +20,7 @@ var downloadAndConvert = function(url, dest, callback) {
 		.on('end',()=>{
 			console.log(jsonCsvArray);
 			console.log('end'+jsonCsvArray.length);
+			fs.unlinkSync(dest);
 			callback(null,jsonCsvArray);
 		});
     });

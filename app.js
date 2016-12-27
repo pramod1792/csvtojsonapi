@@ -1,13 +1,16 @@
 var express = require('express')
 var app = express();
 var csvtojsonController = require('./controllers/csvtojsonController.js');
+const tempCsvFilePath='./tempDest.csv';
 
 var port = process.env.PORT || 5000;
 
 app.get('/convert/csv/to/json', function (req, res) {
   var url = req.query.q;
-  csvtojsonController.downloadAndConvert(url,'./out.csv',function(error,jsonArray){
-		if(error){res.send(error);}	  
+  csvtojsonController.downloadAndConvert(url,tempCsvFilePath,function(error,jsonArray){
+		if(error){
+			res.send(error);
+		}	  
 		res.send(jsonArray);
 	});
 });

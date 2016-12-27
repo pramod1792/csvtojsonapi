@@ -9,7 +9,7 @@
   },
   "configs":{
     "port":5000
-  }
+  },
   "keywords": [
     "csvtojson"
   ],
